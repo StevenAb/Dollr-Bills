@@ -13,7 +13,7 @@ w, h = template.shape[::-1]
 # print(template)
 result = cv2.matchTemplate(test_img, template, cv2.TM_CCOEFF_NORMED)
 # print(result)
-threshold = 0.17
+threshold = 0.15
 loc = np.where(result >= threshold)
 
 dollar_location = []
