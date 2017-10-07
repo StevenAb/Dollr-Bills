@@ -4,6 +4,7 @@
 
 import os
 import io
+import glob
 
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"]='Credentials.json'
 
@@ -35,10 +36,18 @@ def billValue(bill):
 
     for entity in entities.web_entities:
         value = billType(str(entity.description))
-        if(value == 5 or value == 0):
+        if(value == 5 or value == 1):
             return value
 
-billList = ['five_dollar.jpeg','twenty_template.png']
+    return 0
 
-for bill in billList:
-    print billValue(bill)
+def total():
+    total = 0
+
+    for image in glob.glob('./faces/*'):
+        total += billValue(image)
+        os.remove(image)
+
+    return total
+
+print total()
