@@ -1,6 +1,7 @@
 import os
 from flask import Flask, request, render_template
 from bill_type import * 
+from get_stock_ import *
 app = Flask(__name__)
 
 
@@ -19,8 +20,10 @@ def upload():
 @app.route('/results')
 def results():
     balance = total()
-    print balance
-    return render_template('results.html', balance=balance)
+    stock = getStock(balance)
+    price = stock[0]
+    name = stock[1]
+    return render_template('results.html', balance=balance, price=price, name=name)
 
 
 def main():

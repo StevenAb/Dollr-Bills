@@ -5,4 +5,16 @@
     {% else %}
     <h1>Edge case, you fucked up!</h1>
     {% endif %}
+    
+    {% if name %}
+    <h1>Stock: {{ name }}</h1>
+    {% else %}
+    <h1>Fucked up :(</h1>
+    {% endif  %}
+
+    {% if price %}
+    <h1>Price: ${{ price }}</h1>
+    {% else %}
+    <h1>Fucked up again</h1>
+    {% endif %}
 </html>
