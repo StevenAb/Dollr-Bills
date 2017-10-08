@@ -1,7 +1,3 @@
-
-
-
-
 import os
 import io
 import glob
@@ -12,10 +8,18 @@ from google.cloud import vision
 from google.cloud.vision import types
 
 def billType(s):
-    if ("Lincoln" in s):
+    if "Lincoln" in s:
         return 5
-    elif ("Washington" in s):
+    elif "Washington" in s:
         return 1
+    elif "Jackson" in s:
+        return 20
+    elif "Hamilton" in s:
+        return 10
+    elif "Ulysses" in s:
+        return 50
+    elif "Franklin" in s:
+        return 100
     else:
         return 0
 
